@@ -1,19 +1,23 @@
-# Execution Engine Demo
+# Async Execution Engine Demo
 
-Async limit order execution engine with:
+A minimal event-driven limit order execution engine demonstrating:
 
-- Replace-on-price-move logic
-- Partial fill tracking across order replacements
-- Slippage modeling
-- Price step rounding
-- Exchange abstraction via protocol interface
-- Mock exchange for deterministic testing
+• Partial fill tracking across order replacements  
+• Price-based order replacement logic  
+• Slippage modeling  
+• Tick-size rounding  
+• Exchange abstraction via protocol interface  
+• Deterministic mock exchange for testing  
 
-## Structure
+This project isolates execution logic from exchange connectivity using a clean interface boundary.
 
-- execution_engine.py — core execution logic
-- mock_exchange.py — simulated exchange
-- run.py — demo runner
+## Architecture
+
+ExecutionEngine
+    ↳ ExchangeInterface (Protocol)
+        ↳ MockExchange (simulation)
+
+The engine accumulates fill deltas across replaced orders and stops when the global target size is achieved (with floating point tolerance protection).
 
 ## Run
 
