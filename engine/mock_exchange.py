@@ -1,7 +1,8 @@
 import asyncio
 import random
 from typing import AsyncIterator
-from execution_engine import ExchangeInterface, OrderUpdate
+
+from .execution_engine import ExchangeInterface, OrderUpdate
 
 
 class MockExchange(ExchangeInterface):
