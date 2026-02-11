@@ -1,25 +1,57 @@
-# Async Execution Engine Demo
+# Async Execution Engine (Python Library)
 
-A minimal event-driven limit order execution engine demonstrating:
+A minimal, pip-installable event-driven execution engine demonstrating production-style
+limit order management with strict exchange abstraction.
 
-• Partial fill tracking across order replacements  
-• Price-based order replacement logic  
-• Slippage modeling  
-• Tick-size rounding  
-• Exchange abstraction via protocol interface  
-• Deterministic mock exchange for testing  
+This project isolates execution logic from connectivity using a clean interface boundary.
 
-This project isolates execution logic from exchange connectivity using a clean interface boundary.
+---
+
+## What It Demonstrates
+
+- Partial fill tracking across order replacements
+- Global target accumulation across multiple orders
+- Price-distance based order replacement logic
+- Slippage modeling
+- Tick-size rounding
+- Async order lifecycle handling (asyncio)
+- Exchange abstraction via protocol interface
+- Deterministic mock exchange for reproducible testing
+- Floating-point tolerance protection for execution completion
+
+The engine accumulates fill deltas across replaced orders and stops only when
+the global target size is achieved.
+
+---
 
 ## Architecture
 
 ExecutionEngine
-    ↳ ExchangeInterface (Protocol)
-        ↳ MockExchange (simulation)
+    ↓
+ExchangeInterface (Protocol)
+    ↓
+Concrete Exchange (MockExchange or real adapter)
 
-The engine accumulates fill deltas across replaced orders and stops when the global target size is achieved (with floating point tolerance protection).
+Execution logic is fully decoupled from connectivity.
+Any exchange implementation conforming to ExchangeInterface can be plugged in.
 
-## Run
+---
 
-python run.py
+## Installation
+
+Install in editable mode:
+
+pip install -e .
+
+---
+
+## Example
+
+Run the included example:
+
+python examples/simple_run.py
+
+Example import:
+
+from execution_engine.engine import ExecutionEngine
 
