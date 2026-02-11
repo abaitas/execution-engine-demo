@@ -1,7 +1,8 @@
 import asyncio
 
-from engine.execution_engine import ExecutionEngine, ReplaceConfig, MarketSnapshot
-from engine.mock_exchange import MockExchange
+from execution_engine.engine import ExecutionEngine, ReplaceConfig, MarketSnapshot
+from execution_engine.mock_exchange import MockExchange
+
 
 
 async def market_simulator(engine):
