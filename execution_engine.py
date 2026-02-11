@@ -1,3 +1,18 @@
+"""
+Async Limit Order Execution Engine
+
+Core features:
+- Exchange abstraction via Protocol interface
+- Global fill tracking across order replacements
+- Price-based replacement logic
+- Tick-size rounding
+- Slippage modeling
+- Floating-point tolerance protection (EPSILON)
+
+This module isolates execution logic from exchange connectivity,
+making it portable across brokers or exchanges.
+"""
+
 import asyncio
 from dataclasses import dataclass
 from typing import AsyncIterator, Protocol
