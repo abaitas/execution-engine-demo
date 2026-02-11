@@ -1,9 +1,0 @@
-README.md
-setup.py
-execution_engine/__init__.py
-execution_engine/engine.py
-execution_engine/mock_exchange.py
-execution_engine_demo.egg-info/PKG-INFO
-execution_engine_demo.egg-info/SOURCES.txt
-execution_engine_demo.egg-info/dependency_links.txt
-execution_engine_demo.egg-info/top_level.txt
